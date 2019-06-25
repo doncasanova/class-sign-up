@@ -1,0 +1,15 @@
+CREATE DATABASE classlist;
+
+  use classlist;
+
+  CREATE TABLE students (
+    id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(30) NOT NULL,
+    lastname VARCHAR(30) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+	company VARCHAR(50) NOT NULL,
+	class VARCHAR(50) NOT NULL,
+	classstart VARCHAR(50) NOT NULL,
+	completed BOOLEAN,
+    date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+  );

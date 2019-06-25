@@ -3,8 +3,9 @@
     "",
     "\\public",
     "\\public\\css",
-    "\\public\\data"
+    "\\public\\data",
+    "\\public\\templates"
   ],
-  "SelectedNode": "\\public\\login.php",
+  "SelectedNode": "\\public\\delete.php",
   "PreviewInSolutionExplorer": false
 }
