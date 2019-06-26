@@ -16,6 +16,7 @@
     $sql = "SELECT *
     FROM students
     WHERE completed = 0";
+		
 
     $completed = $_POST['completed'];
 
@@ -81,20 +82,4 @@ if (isset($_POST['submit'])) {
 <a href="index.php"><button class="btn btn-primary m-1">Back to home</button></a>
 </div>
 </div>
-
-
-<div class="row d-flex justify-content-center">
-	<a href="lathe.php"><button class="btn btn-primary m-1">Lathe</button></a>
-</div>
-<div class="row d-flex justify-content-center">
-	<a href="mill.php"><button class="btn btn-primary m-1">Mill</button></a>
-</div>
-<div class="row d-flex justify-content-center">
-	<a href="advanced-mill.php"><button class="btn btn-primary m-1">Advanced Mill</button></a>
-</div>
-
-
-
-
 <?php require "templates/footer.php"; ?>
-

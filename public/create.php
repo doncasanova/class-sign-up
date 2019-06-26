@@ -81,7 +81,7 @@ implode(", ", array_keys($new_user)),
     <label for="formGroupExampleInput2">Class Start Date</label>
     <input type="Date" class="form-control" name="classStart" id="classStart" placeholder="Class Start Date">
   </div>
-  <button type="submit" class="btn btn-primary" name="submit" value="Submit">Submit</button>
+  <a href="index.php"><button type="submit" class="btn btn-primary" name="submit" value="Submit">Submit</button></a>
 </form>
 </div>
 </div>

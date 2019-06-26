@@ -16,6 +16,9 @@
 		<div class="row d-flex justify-content-center">
 			<h1>Welcome to our Class Sign Up Area</h1>
 		</div>
+		<div class="row d-flex justify-content-center">
+		<div><img src="../public/images/midwest-logo.png" alt="Italian Trulli"></div>
+		</div>
 	</div>
   </body>
 

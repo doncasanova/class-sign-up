@@ -4,6 +4,7 @@
     "\\public",
     "\\public\\css",
     "\\public\\data",
+    "\\public\\images",
     "\\public\\templates"
   ],
   "SelectedNode": "\\public\\read.php",

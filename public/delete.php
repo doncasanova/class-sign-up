@@ -1,7 +1,7 @@
 <?php
 
 /**
-  * Delete a user
+  * Update student to no (1)
   */
 
 require "../config.php";
@@ -13,13 +13,17 @@ if (isset($_GET["id"])) {
 
     $id = $_GET["id"];
 
-    $sql = "DELETE FROM students WHERE id = :id";
+    $sql = "UPDATE FROM students WHERE id = :id";
+	$sql = "UPDATE students
+            SET id = :id,
+			 completed = 1
+            WHERE id = :id";
 
     $statement = $connection->prepare($sql);
     $statement->bindValue(':id', $id);
     $statement->execute();
 
-    $success = "User successfully deleted";
+    $success = "<div class='row d-flex justify-content-center'><h2>Student successfully removed</h2></div>";
   } catch(PDOException $error) {
     echo $sql . "<br>" . $error->getMessage();
   }
@@ -28,8 +32,8 @@ if (isset($_GET["id"])) {
 try {
   $connection = new PDO($dsn, $username, $password, $options);
 
-  $sql = "SELECT * FROM users";
-
+  $sql = "SELECT * FROM students WHERE completed = 0";
+	
   $statement = $connection->prepare($sql);
   $statement->execute();
 
@@ -40,39 +44,40 @@ try {
 ?>
 <?php require "templates/header.php"; ?>
 
-<h2>Delete users</h2>
-
 <?php if ($success) echo $success; ?>
 
-<table>
+<div class="content">
+<div class="row d-flex justify-content-center">
+
+    <h2>List of current students</h2>
+	</div>
+	<div class="row d-flex justify-content-center">
+    <table class="table ml-3">
   <thead>
     <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email Address</th>
-      <th>Age</th>
-      <th>Location</th>
-      <th>Date</th>
-      <th>Delete</th>
+    <th scope="col-3">Name</th>
+	<th scope="col-3">Email Address</th>
+	<th scope="col-3">Company</th>
+	<th scope="col-3">Class</th>
+	<th scope="col-3">Class Start</th>
     </tr>
   </thead>
   <tbody>
   <?php foreach ($result as $row) : ?>
-    <tr>
-      <td><?php echo escape($row["id"]); ?></td>
-      <td><?php echo escape($row["firstname"]); ?></td>
-      <td><?php echo escape($row["lastname"]); ?></td>
-      <td><?php echo escape($row["email"]); ?></td>
-      <td><?php echo escape($row["age"]); ?></td>
-      <td><?php echo escape($row["location"]); ?></td>
-      <td><?php echo escape($row["date"]); ?> </td>
-      <td><a href="delete.php?id=<?php echo escape($row["id"]); ?>">Delete</a></td>
-    </tr>
+	<tr>
+		<td><?php echo escape($row["firstname"]); ?><?php?> <?php ?> <?php echo escape($row["lastname"]); ?></td>
+		<td><?php echo escape($row["email"]); ?></td>
+		<td><?php echo escape($row["company"]); ?></td>
+		<td><?php echo escape($row["class"]); ?></td>
+		<td><?php echo escape($row["classstart"]); ?> </td>
+		<td><a href="delete.php?id=<?php echo escape($row["id"]); ?>">Delete</a></td>
+	</tr>
   <?php endforeach; ?>
   </tbody>
 </table>
+</div>
+</div>
 
-<a href="index.php">Back to home</a>
+<a href="index.php"><button class="btn btn-primary m-1">Back to home</button></a>
 
 <?php require "templates/footer.php"; ?>

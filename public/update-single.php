@@ -15,7 +15,9 @@ if (isset($_POST['submit'])) {
       "lastname"  => $_POST['lastname'],
       "email"     => $_POST['email'],
 	  "company"   => $_POST['company'],
-      "class"     => $_POST['class']
+      "class"     => $_POST['class'],
+	  "classstart"     => $_POST['classstart'],
+	  "completed" => $_POST['completed']
     ];
 
     $sql = "UPDATE students
@@ -24,7 +26,9 @@ if (isset($_POST['submit'])) {
               lastname = :lastname,
               email = :email,
               company = :company,
-              class = :class
+              class = :class,
+			   classstart = :classstart,
+			  completed = :completed
             WHERE id = :id";
 
   $statement = $connection->prepare($sql);
@@ -61,30 +65,33 @@ if (isset($_GET['id'])) {
 <div class="row d-flex justify-content-center">
 <h2>Update Student Info</h2>
 </div>
-
 <div class="row d-flex justify-content-center">
 <?php if (isset($_POST['submit']) && $statement) : ?>
 <h3><?php echo escape($_POST['firstname']); ?> successfully updated.</h3>
 <?php endif; ?>
 </div>
+
+<div class="row d-flex justify-content-center">
+
 <form method="post">
-	<div class="row d-flex justify-content-start">
+	<button type="submit" class="btn btn-primary ml-3" name="submit" value="Update">Update</button>
 		<?php foreach ($user as $key => $value) : ?>
-			<div class="form-group row d-flex justify-content-center">
-				<div class= "col-3">
-				<label class= "m-0" for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
-				
-				<input class= "m-0" type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ? 'readonly' : null); ?>>
-				</div>
-			</div>
-		<?php endforeach; ?>
 			
-	</div>
-	<button type="submit" class="btn btn-primary ml-3" name="submit" value="Update">Primary</button>
-	<a class= "ml-3" href="index.php">Back to home</a>
+				<ul class= "col-3 list-group-flush">
+					<li class="list-group-item">
+						<label class= "m-0" for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
+						<input class= "m-0" type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ? 'readonly' : null); ?>>
+					</li>
+				</ul>
+			
+		<?php endforeach; ?>	
 </form>
 
+</div>
 
+<div class="row d-flex justify-content-center">
+	<a href="index.php"><button class="btn btn-primary">Back to home</button></a>
+</div>
 
 <?php require "templates/footer.php"; ?>
 

@@ -43,7 +43,7 @@ try {
   <tbody>
   <?php foreach ($result as $row) : ?>
 	<tr>
-		<td><?php echo escape($row["firstname"]); ?><?php echo escape($row["lastname"]); ?></td>
+		<td><?php echo escape($row["firstname"]); ?> <?php ?> <?php echo escape($row["lastname"]); ?></td>
 		<td><?php echo escape($row["email"]); ?></td>
 		<td><?php echo escape($row["company"]); ?></td>
 		<td><?php echo escape($row["class"]); ?></td>
