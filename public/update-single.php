@@ -14,10 +14,8 @@ if (isset($_POST['submit'])) {
       "firstname" => $_POST['firstname'],
       "lastname"  => $_POST['lastname'],
       "email"     => $_POST['email'],
-	  "company"     => $_POST['company'],
-      "class"       => $_POST['class'],
-	  "completed" => 0,
-      "classStart"  => $_POST['classStart']
+	  "company"   => $_POST['company'],
+      "class"     => $_POST['class']
     ];
 
     $sql = "UPDATE students
@@ -26,10 +24,7 @@ if (isset($_POST['submit'])) {
               lastname = :lastname,
               email = :email,
               company = :company,
-              class = :class,
-			  completed => :0,
-			  classStart = :classStart,
-			  date = date
+              class = :class
             WHERE id = :id";
 
   $statement = $connection->prepare($sql);
@@ -60,21 +55,36 @@ if (isset($_GET['id'])) {
 
 <?php require "templates/header.php"; ?>
 
+
+ 
+
+<div class="row d-flex justify-content-center">
+<h2>Update Student Info</h2>
+</div>
+
+<div class="row d-flex justify-content-center">
 <?php if (isset($_POST['submit']) && $statement) : ?>
-  <?php echo escape($_POST['firstname']); ?> successfully updated.
+<h3><?php echo escape($_POST['firstname']); ?> successfully updated.</h3>
 <?php endif; ?>
-
-<h2>Edit a user</h2>
-
+</div>
 <form method="post">
-    <?php foreach ($user as $key => $value) : ?>
-      <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
-      <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ? 'readonly' : null); ?>>
-    <?php endforeach; ?>
-    <input type="submit" name="submit" value="Submit">
+	<div class="row d-flex justify-content-start">
+		<?php foreach ($user as $key => $value) : ?>
+			<div class="form-group row d-flex justify-content-center">
+				<div class= "col-3">
+				<label class= "m-0" for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
+				
+				<input class= "m-0" type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ? 'readonly' : null); ?>>
+				</div>
+			</div>
+		<?php endforeach; ?>
+			
+	</div>
+	<button type="submit" class="btn btn-primary ml-3" name="submit" value="Update">Primary</button>
+	<a class= "ml-3" href="index.php">Back to home</a>
 </form>
 
-<a href="index.php">Back to home</a>
+
 
 <?php require "templates/footer.php"; ?>
 
