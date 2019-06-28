@@ -1,12 +1,21 @@
 body {
     font-family: Arial, Sans-Serif;
 }
-
+.jumbotron {
+  background-color: lightgray;
+    width: 20%;
+}
+.indexBackGround {
+    background-color: darkgray;
+}
+.test {
+    position: relative;
+    top: 100px;
+}
 .clearfix:before, .clearfix:after {
     content: "";
     display: table;
 }
-
 .clearfix:after {
     clear: both;
 }
@@ -52,3 +61,11 @@ input[type='submit'] {
     input[type='submit']:hover {
         background-color: #024978;
     }
+
+ul {
+    list-style-type: none;
+}
+
+.btn-primary {
+    color: lightgray !important;
+}
