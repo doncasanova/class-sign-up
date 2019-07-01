@@ -57,41 +57,56 @@ if (isset($_GET['id'])) {
 }
 ?>
 
-<?php require "templates/header.php"; ?>
+<!DOCTYPE html>
+<html lang="en">
+		  <head>
+			<meta charset="utf-8" />
+			<meta http-equiv="x-ua-compatible" content="ie=edge" />
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
 
+			<title>Welcome</title>
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+			<link rel="stylesheet" href="/css/style.css" />
+		  </head>
 
- 
+		<body class="indexBackGround">
 
-<div class="row d-flex justify-content-center">
-<h2>Update Student Info</h2>
-</div>
-<div class="row d-flex justify-content-center">
-<?php if (isset($_POST['submit']) && $statement) : ?>
-<h3><?php echo escape($_POST['firstname']); ?> successfully updated.</h3>
-<?php endif; ?>
-</div>
+			<?php include "templates/header.php"; ?>
 
-<div class="row d-flex justify-content-center">
+			<div class="row d-flex justify-content-center">
+				<div class="jumbotron updateList">
+					<div class="row d-flex justify-content-center">
+						<h2>Update Student Info</h2>
+					</div>
+					<div class="row d-flex justify-content-center">
+						<?php if (isset($_POST['submit']) && $statement) : ?>
+						<h3><?php echo escape($_POST['firstname']); ?> successfully updated.</h3>
+						<?php endif; ?>
+					</div>
 
-<form method="post">
-	<button type="submit" class="btn btn-primary ml-3" name="submit" value="Update">Update</button>
-		<?php foreach ($user as $key => $value) : ?>
+					<div class="row d-flex justify-content-center">
+
+						<form method="post">
+							<button type="submit" class="btn btn-dark ml-3" name="submit" value="Update">Update</button>
+								<?php foreach ($user as $key => $value) : ?>
 			
-				<ul class= "col-3 list-group-flush">
-					<li class="list-group-item">
-						<label class= "m-0" for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
-						<input class= "m-0" type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ? 'readonly' : null); ?>>
-					</li>
-				</ul>
+										<ul class= "col-6 list-group-flush">
+											<li class="list-group-item upDateLabel">
+												<label class= "m-0" for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
+												<input class= "m-0" type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ? 'readonly' : null); ?>>
+											</li>
+										</ul>
 			
-		<?php endforeach; ?>	
-</form>
+								<?php endforeach; ?>	
+						</form>
 
-</div>
+					</div>
+					</div>
 
-<div class="row d-flex justify-content-center">
-	<a href="index.php"><button class="btn btn-primary">Back to home</button></a>
-</div>
 
-<?php require "templates/footer.php"; ?>
+						<?php require "templates/footer.php"; ?>
+			</div>
 
+
+		</body>
+</html>

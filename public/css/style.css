@@ -2,13 +2,48 @@ body {
     font-family: Arial, Sans-Serif;
 }
 .jumbotron {
-  background-color: lightgray;
-    width: 20%;
+    
+    background-color: lightgray;
+    width: 70%;
 }
 .indexBackGround {
     background-color: darkgray;
 }
-.test {
+.table {
+    width: 50% !important;
+}
+.upDateLabel {
+    background-color: transparent !important;
+    border: none !important;
+}
+.updateList {
+    position: relative;
+    top: 10px;
+    width: 50%;
+}
+.borderless th {
+    border: none !important;
+}
+.logIn {
+    position: relative;
+    top: 100px;
+}
+.indexCSS {
+    position: relative;
+    top: 100px;
+    width: 20%;
+}
+.signUpCSS {
+    position: relative;
+    top: 10px;
+    width: 20%;
+}
+.readCSS {
+    position: relative;
+    top: 100px;
+    width: 15%;
+}
+.classList {
     position: relative;
     top: 100px;
 }
@@ -68,4 +103,7 @@ ul {
 
 .btn-primary {
     color: lightgray !important;
+}
+.table {
+    width: 100%;
 }

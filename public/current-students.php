@@ -34,7 +34,7 @@ try {
 
     <title>Welcome</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../public/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
 
   <body class="indexBackGround">
@@ -47,7 +47,7 @@ try {
 		</div>
 		<div class="row d-flex justify-content-center">
 			<table class="table ml-3">
-				<thead>
+				<thead class="borderless">
 					<tr>
 					<th scope="col-3">Name</th>
 					<th scope="col-3">Email Address</th>
@@ -70,12 +70,6 @@ try {
 				</tbody>
 			</table>
 		</div>
-	</div>
-
-
-
-	<div class="row d-flex justify-content-start ml-3">
-		<a href="index.php"><button class="btn btn-dark m-1">Back to home</button></a>
 	</div>
 		<div class="row d-flex justify-content-start ml-3">
 		<a href="all-students.php"><button class="btn btn-dark m-1">List All Students</button></a>

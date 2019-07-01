@@ -38,7 +38,7 @@
 
 	<?php require "templates/header.php"; ?>
 
-	<div class="row d-flex justify-content-center test">
+	<div class="row d-flex justify-content-center logIn">
 		<div class="form">
 			<h1>Log In</h1>
 			<form action="" method="post" name="login">

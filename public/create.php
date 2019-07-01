@@ -50,14 +50,14 @@ implode(", ", array_keys($new_user)),
 
 		<title>Welcome</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="../public/css/style.css" />
+		<link rel="stylesheet" href="/css/style.css" />
 	  </head>
 
 	<body class="indexBackGround">
 
 		<?php require "templates/header.php"; ?>
 		<div class="row d-flex justify-content-center">
-			<div class="jumbotron mt-4">
+			<div class="jumbotron signUpCSS">
 				<div class="row d-flex justify-content-center">
 					<h3>
 					<?php if (isset($_POST['submit']) && $statement) { ?>
@@ -93,9 +93,6 @@ implode(", ", array_keys($new_user)),
 					  </div>
 					  <a href="index.php"><button type="submit" class="btn btn-dark" name="submit" value="Submit">Submit</button></a>
 					</form>
-				</div>
-				<div class="row d-flex justify-content-start mt-3">
-					<a href="index.php"><button class="btn btn-dark">Back to home</button></a>
 				</div>
 			</div>
 		</div>

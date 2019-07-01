@@ -14,7 +14,7 @@ include("auth.php");
 
     <title>Welcome</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../public/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
 
   <body class="indexBackGround">
@@ -22,7 +22,7 @@ include("auth.php");
 	<?php include "templates/header.php"; ?>
 
 	<div class="row d-flex justify-content-center">
-		<div class="jumbotron test">
+		<div class="jumbotron indexCSS">
 			<div class="row d-flex justify-content-center">
 				<ul class="">
 					<li class=""><a href="create.php"><button class="btn btn-dark mb-2">Sign Up</button></a></li>

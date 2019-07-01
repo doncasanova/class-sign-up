@@ -40,7 +40,7 @@
 
     <title>Welcome</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../public/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
 
 	<body class="indexBackGround">
@@ -48,24 +48,24 @@
 			<?php include "templates/header.php"; ?>
 
 		<div class="row d-flex justify-content-center">
-			<div class="jumbotron test">
+			<div class="jumbotron classList">
 
 			<?php
-			if (isset($_POST['submit'])) {
+			if (isset($_POST)) {
 			  if ($result && $statement->rowCount() > 0) { ?>
 				<div class="content">
 					<div class="row d-flex justify-content-center">
-						<h2>List of current students</h2>
+						<h2>List of current Mill students</h2>
 					</div>
 					<div class="row d-flex justify-content-center">
-						<table class="table ml-3">
+						<table class="table mill ml-3">
 							<thead>
 								<tr>
-									<th scope="col-3">Name</th>
-									<th scope="col-3">Email Address</th>
-									<th scope="col-3">Company</th>
-									<th scope="col-3">Class</th>
-									<th scope="col-3">Class Start</th>
+									<th scope="">Name</th>
+									<th scope="">Email Address</th>
+									<th scope="">Company</th>
+									<th scope="">Class</th>
+									<th scope="">Class Start</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -89,16 +89,6 @@
 								</div>
 						  <?php }
 						} ?>
-
-
-						<div class="row d-flex justify-content-center">
-							<form method="post">
-							<button type="submit" class="btn btn-dark m-1" name="submit" value="Show List">Show List</button>
-							</form>
-						</div>
-						<div class="row d-flex justify-content-center">
-							<a href="index.php"><button class="btn btn-dark m-1">Back to home</button></a>
-						</div>
 				</div>
 					<?php require "templates/footer.php"; ?>
 	</body>
