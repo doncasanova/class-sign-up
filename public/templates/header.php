@@ -11,6 +11,9 @@
 
   <body class="">
 	<div class="content">
+		<div class="row d-flex justify-content-end mr-4">
+			<a href="logout.php"><button class="btn btn-dark m-1">Logout</button></a>
+		</div>
 		<div class="row d-flex justify-content-center">
 			<h1>Welcome to our Class Sign Up Area</h1>
 		</div>

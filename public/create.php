@@ -85,23 +85,23 @@ implode(", ", array_keys($new_user)),
 					  </div>
 					  <div class="form-group">
 						<p class="p3">
-							<input type="radio" name="class" value="Basic Lathe" />
+							<input type="radio" name="class" value="Basic Lathe" required/>
 							Lathe
-							<input type="radio" name="class" value="Basic Mill" />
+							<input type="radio" name="class" value="Basic Mill" required/>
 							Mill
-							<input type="radio" name="class" value="Advanced Mill" />
+							<input type="radio" name="class" value="Advanced Mill" required/>
 							Advanved Mill
 						</p>
 					  </div>
 					   <div class="form-group">
 						<p class="p3">
-							<input type="radio" name="classStart" value="Spring 2019" />
+							<input type="radio" name="classStart" value="Spring 2019" required/>
 							Spring 2019
-							<input type="radio" name="classStart" value="Summer 2019" />
+							<input type="radio" name="classStart" value="Summer 2019" required/>
 							Summer 2019
-							<input type="radio" name="classStart" value="Fall 2019" />
+							<input type="radio" name="classStart" value="Fall 2019"required />
 							Fall 2019
-							<input type="radio" name="classStart" value="Fall/Winter 2019-20" />
+							<input type="radio" name="classStart" value="Fall/Winter 2019-20" required/>
 							Fall/Winter 2019-20
 						</p>
 					  </div>

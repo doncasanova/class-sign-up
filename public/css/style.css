@@ -2,15 +2,19 @@ body {
     font-family: Arial, Sans-Serif;
 }
 .jumbotron {
-    
-    background-color: lightgray;
-    width: 50%;
+    background: rgba(128, 128, 128, 0.8) !important;
+    width: 40%;
 }
 .indexBackGround {
+    background-image: url("../images/slider-Training.jpg");
+    height: 500px; /* You must set a specified height */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
     background-color: darkgray;
 }
 .table {
     width: 50% !important;
+    background-color: lightgrey;
 }
 .upDateLabel {
     background-color: transparent !important;
@@ -32,6 +36,7 @@ body {
     position: relative;
     top: 100px;
     width: 20%;
+    background: rgba(76, 175, 80, 0.9);
 }
 .signUpCSS {
     position: relative;
@@ -106,4 +111,7 @@ ul {
 }
 .tables {
     width: 100%;
+}
+h1, h2, h3 {
+    text-shadow: 1px 1px white;
 }
