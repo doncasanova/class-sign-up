@@ -71,7 +71,7 @@
 							<tbody>
 									<?php foreach ($result as $row) { ?>
 								<tr>
-									<td><?php echo escape($row["firstname"]); ?> <?php ?>   <?php echo escape($row["lastname"]); ?></td>
+									<td><?php echo escape($row["firstname"]); ?> <?php ?><?php echo escape($row["lastname"]); ?></td>
 									<td><?php echo escape($row["email"]); ?></td>
 									<td><?php echo escape($row["company"]); ?></td>
 									<td><?php echo escape($row["class"]); ?></td>
@@ -85,7 +85,7 @@
 
 						  <?php } else { ?>
 								<div class="row d-flex justify-content-center">
-									<h3>No results found for Mill</h3> <?php echo escape($_POST['location']); ?>.
+									<h3>No results found for Advanced Mill</h3> <?php echo escape($_POST['location']); ?>.
 								</div>
 						  <?php }
 						} ?>

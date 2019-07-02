@@ -57,14 +57,14 @@ implode(", ", array_keys($new_user)),
 
 		<?php require "templates/header.php"; ?>
 		<div class="row d-flex justify-content-center">
+			<h3>
+			<?php if (isset($_POST['submit']) && $statement) { ?>
+			<?php echo $_POST['firstname']; ?>, Thank you for Joining our <?php echo $_POST['classStart']; ?> <?php echo $_POST['class']; ?> Class.
+			<?php } ?>
+			</h3>
+		</div>
+		<div class="row d-flex justify-content-center">
 			<div class="jumbotron signUpCSS">
-				<div class="row d-flex justify-content-center">
-					<h3>
-					<?php if (isset($_POST['submit']) && $statement) { ?>
-					<?php echo $_POST['firstname']; ?>Thank you for Joining our <?php echo $_POST['class']; ?> Class.
-					<?php } ?>
-					</h3>
-				</div>
 				<div class="row d-flex justify-content-center ml-3">
 					<form method="post">
 					  <div class="form-group">
@@ -84,12 +84,26 @@ implode(", ", array_keys($new_user)),
 						<input type="text" class="form-control" name="company" id="company" placeholder="Company" required>
 					  </div>
 					  <div class="form-group">
-						<label for="formGroupExampleInput2">Class</label>
-						<input type="text" class="form-control" name="class" id="class" placeholder="Class" required>
+						<p class="p3">
+							<input type="radio" name="class" value="Basic Lathe" />
+							Lathe
+							<input type="radio" name="class" value="Basic Mill" />
+							Mill
+							<input type="radio" name="class" value="Advanced Mill" />
+							Advanved Mill
+						</p>
 					  </div>
-					  <div class="form-group">
-						<label for="formGroupExampleInput2">Class Start Date</label>
-						<input type="Date" class="form-control" name="classStart" id="classStart" placeholder="Class Start Date" required>
+					   <div class="form-group">
+						<p class="p3">
+							<input type="radio" name="classStart" value="Spring 2019" />
+							Spring 2019
+							<input type="radio" name="classStart" value="Summer 2019" />
+							Summer 2019
+							<input type="radio" name="classStart" value="Fall 2019" />
+							Fall 2019
+							<input type="radio" name="classStart" value="Fall/Winter 2019-20" />
+							Fall/Winter 2019-20
+						</p>
 					  </div>
 					  <a href="index.php"><button type="submit" class="btn btn-dark" name="submit" value="Submit">Submit</button></a>
 					</form>

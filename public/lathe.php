@@ -84,7 +84,7 @@
 
 						  <?php } else { ?>
 								<div class="row d-flex justify-content-center">
-									<h3>No results found for Mill</h3> <?php echo escape($_POST['location']); ?>.
+									<h3>No results found for Lathe</h3> <?php echo escape($_POST['location']); ?>.
 								</div>
 						  <?php }
 						} ?>
