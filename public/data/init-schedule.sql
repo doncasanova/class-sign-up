@@ -1,15 +1,36 @@
-CREATE DATABASE classlist;
 
   use classlist;
 
-  CREATE TABLE students (
+  CREATE TABLE IF NOT EXISTS students (
     id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR(30) NOT NULL,
     lastname VARCHAR(30) NOT NULL,
     email VARCHAR(50) NOT NULL,
 	company VARCHAR(50) NOT NULL,
-	class VARCHAR(50) NOT NULL,
-	classstart VARCHAR(50) NOT NULL,
+	classid INT(50) NOT NULL,
+	userid INT(50) NOT NULL,
 	completed BOOLEAN,
     date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
+
+  CREATE TABLE IF NOT EXISTS classes (
+    id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    classname VARCHAR(30) NOT NULL,
+	classsize INT(2) NOT NULL,
+	classyear VARCHAR(50) NOT NULL,
+	quarter VARCHAR(50) NOT NULL,
+	completed BOOLEAN,
+    date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+  );
+
+  CREATE TABLE IF NOT EXISTS users (
+	 id INT(11) NOT NULL AUTO_INCREMENT,
+	 firstname VARCHAR(30) NOT NULL,
+	 lastname VARCHAR(30) NOT NULL,
+	 email VARCHAR(50) NOT NULL,
+	 company VARCHAR(50) NOT NULL,
+	 password VARCHAR(50) NOT NULL,
+	 admin BOOLEAN,
+	 trn_date datetime NOT NULL,
+	 PRIMARY KEY (`id`)
+	);

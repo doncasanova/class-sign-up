@@ -1,5 +1,8 @@
 <?php
-
+@ob_start();
+session_start();
+?>
+<?php
 /**
   * Function to query information based on
   * a parameter: in this case, location.
@@ -16,7 +19,7 @@
     $sql = "SELECT *
     FROM students
     WHERE completed = 0
-	AND class LIKE 'basic lathe' ";
+	AND class LIKE 'macro' ";
 
     $completed = $_POST['completed'];
 
@@ -55,10 +58,10 @@
 			  if ($result && $statement->rowCount() > 0) { ?>
 				<div class="content">
 					<div class="row d-flex justify-content-center">
-						<h2>List of current Lathe students</h2>
+						<h2>List of current Macro students</h2>
 					</div>
 					<div class="row d-flex justify-content-center">
-						<table class=" col-12 table mill">
+						<table class="col-12 table mill">
 							<thead>
 								<tr>
 									<th scope="">Name</th>
@@ -80,13 +83,15 @@
 									<?php } ?>
 							</tbody>
 						</table>
-						<?php } else { ?>
+					</div>
+
+
+						  <?php } else { ?>
 								<div class="row d-flex justify-content-center">
-									<h3>No results found for Lathe</h3> <?php echo escape($_POST['location']); ?>.
+									<h3>No results found for Macro</h3> <?php echo escape($_POST['location']); ?>.
 								</div>
 						  <?php }
 						} ?>
-					</div>  
 				</div>
 					<?php require "templates/footer.php"; ?>
 	</body>

@@ -2,7 +2,7 @@ body {
     font-family: Arial, Sans-Serif;
 }
 .jumbotron {
-    background: rgba(128, 128, 128, 0.8) !important;
+    background: rgba(221, 246, 248, 0.86) !important;
     width: 40%;
 }
 .indexBackGround {
@@ -34,7 +34,7 @@ body {
 }
 .indexCSS {
     position: relative;
-    top: 100px;
+    top: 20px;
     width: 20%;
     background: rgba(76, 175, 80, 0.9);
 }
@@ -45,12 +45,12 @@ body {
 }
 .readCSS {
     position: relative;
-    top: 100px;
+    top: 20px;
     width: 15%;
 }
 .classList {
     position: relative;
-    top: 100px;
+    top: 20px;
 }
 .clearfix:before, .clearfix:after {
     content: "";
@@ -83,6 +83,7 @@ input[type='password'] {
     color: #333;
     font-size: 14px;
     margin-top: 10px;
+    background-color: darkgray;
 }
 
 input[type='submit'] {
@@ -114,4 +115,17 @@ ul {
 }
 h1, h2, h3 {
     text-shadow: 1px 1px white;
+}
+
+.footer {
+    position: relative;
+    top: 300px
+}
+img.imgContainer {
+    max-width: 50%;
+    height: auto;
+}
+.studentSignUpCSS {
+    width: 30% !important;
+    background-color: rgba(221, 246, 248, 0.86) !important;
 }

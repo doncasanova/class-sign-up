@@ -42,6 +42,10 @@ try {
 	<?php require "templates/header.php"; ?>
 
 	<div class="content">
+		</div>
+			<div class="row d-flex justify-content-start ml-3">
+			<a href="all-students.php"><button class="btn btn-dark m-1">List All Students</button></a>
+		</div>
 		<div class="row d-flex justify-content-center">	
 			<h2>List of current students</h2>
 		</div>
@@ -70,9 +74,4 @@ try {
 				</tbody>
 			</table>
 		</div>
-	</div>
-		<div class="row d-flex justify-content-start ml-3">
-		<a href="all-students.php"><button class="btn btn-dark m-1">List All Students</button></a>
-	</div>
-
 </body>

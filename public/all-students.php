@@ -40,8 +40,11 @@ try {
   			<?php include "templates/header.php"; ?>
 
 		<div class="content">
+			<div class="row d-flex justify-content-start ml-3">
+				<a href="current-students.php"><button class="btn btn-dark m-1">List Current Students</button></a>
+			</div>
 			<div class="row d-flex justify-content-center">
-				<h2>List of current students</h2>
+				<h2>List of all students</h2>
 			</div>
 			<div class="row d-flex justify-content-center">
 				<table class="table ml-3">
@@ -68,9 +71,6 @@ try {
 				  </tbody>
 				</table>
 			</div>
-		</div>
-		<div class="row d-flex justify-content-start ml-3">
-			<a href="current-students.php"><button class="btn btn-dark m-1">List Current Students</button></a>
 		</div>
 	</body>
 </html>

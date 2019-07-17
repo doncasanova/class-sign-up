@@ -23,15 +23,15 @@
 							<li class=""><a href="lathe.php"><button class="btn btn-dark m-1">Lathe</button></a></li>
 							<li class=""><a href="mill.php"><button class="btn btn-dark m-1">Mill</button></a></li>
 							<li class=""><a href="advanced-mill.php"><button class="btn btn-dark m-1">Advanced Mill</button></a></a></li>
+							<li class=""><a href="macro.php"><button class="btn btn-dark m-1">Macro</button></a></a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
-
-				<?php require "templates/footer.php"; ?>
-	
-
 	 </body>
+	 <div class="row d-flex justify-content-center">
+		<?php require "templates/footer.php"; ?>
+	</div>
  </html>
 
 

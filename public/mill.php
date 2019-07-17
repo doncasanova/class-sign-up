@@ -16,7 +16,7 @@
     $sql = "SELECT *
     FROM students
     WHERE completed = 0
-	AND class LIKE 'mill' ";
+	AND class LIKE 'basic mill' ";
 
     $completed = $_POST['completed'];
 
@@ -58,7 +58,7 @@
 						<h2>List of current Mill students</h2>
 					</div>
 					<div class="row d-flex justify-content-center">
-						<table class="table mill ml-3">
+						<table class=" col-12 table mill">
 							<thead>
 								<tr>
 									<th scope="">Name</th>
@@ -80,15 +80,13 @@
 									<?php } ?>
 							</tbody>
 						</table>
-					</div>
-
-
-						  <?php } else { ?>
+						<?php } else { ?>
 								<div class="row d-flex justify-content-center">
 									<h3>No results found for Mill</h3> <?php echo escape($_POST['location']); ?>.
 								</div>
 						  <?php }
 						} ?>
+					</div>  
 				</div>
 					<?php require "templates/footer.php"; ?>
 	</body>

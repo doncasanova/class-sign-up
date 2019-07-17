@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 /**
   * Use an HTML form to create a new entry in the
@@ -39,6 +40,7 @@ implode(", ", array_keys($new_user)),
   }
 
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -54,8 +56,7 @@ implode(", ", array_keys($new_user)),
 	  </head>
 
 	<body class="indexBackGround">
-
-		<?php require "templates/header.php"; ?>
+		<?php include "templates/header.php"; ?>
 		<div class="row d-flex justify-content-center">
 			<h3>
 			<?php if (isset($_POST['submit']) && $statement) { ?>
@@ -91,6 +92,8 @@ implode(", ", array_keys($new_user)),
 							Mill
 							<input type="radio" name="class" value="Advanced Mill" required/>
 							Advanved Mill
+							<input type="radio" name="class" value="Macro" required/>
+							Macro
 						</p>
 					  </div>
 					   <div class="form-group">
@@ -110,8 +113,8 @@ implode(", ", array_keys($new_user)),
 				</div>
 			</div>
 		</div>
-		
-			<?php require "templates/footer.php"; ?>
-
 	</body>
+	<div class="row d-flex justify-content-center">
+		<?php require "templates/footer.php"; ?>
+	</div>
  </html>

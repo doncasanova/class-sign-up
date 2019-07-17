@@ -58,7 +58,7 @@
 						<h2>List of current Advanced Mill students</h2>
 					</div>
 					<div class="row d-flex justify-content-center">
-						<table class="table ml-3">
+						<table class=" col-12 table">
 							<thead>
 								<tr>
 									<th scope="col-3">Name</th>
