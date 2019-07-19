@@ -1,6 +1,6 @@
 <?php
-session_start();
- $_SESSION['classname'] = 'Basic Mill';
+	session_start();
+	$_SESSION['classname'] = 'Basic Mill';
 
   try {
     require "../config.php";
@@ -11,7 +11,8 @@ session_start();
     $sql = "SELECT *
     FROM classes
     WHERE completed = 0
-	AND classname LIKE 'basic mill' ";
+	AND classname LIKE 'basic mill' 
+	AND classsize > 0"; 
 
     $completed = $_POST['completed'];
 
@@ -23,7 +24,6 @@ session_start();
   } catch(PDOException $error) {
     echo $sql . "<br>" . $error->getMessage();
   }
-
 ?>
 
 <!DOCTYPE html>
@@ -70,19 +70,21 @@ session_start();
 									<td><?php echo escape($row["quarter"]); ?></td>
 									<td><?php echo escape($row["classyear"]); ?></td>
 									<td class="row d-flex justify-content-center"><?php echo escape($row["classsize"]); ?></td>
-									<td><a href="test.php?id=<?php echo escape($row["id"]); ?>">Add Me</a></td>
+									<td><a type="submit" href="test.php?id=<?php echo escape($row['id']); ?>"< button class="btn btn-dark" >Add Me</a></td>
 						
 								</tr>
-									<?php } ?>
+
+									<?php } $_SESSION['total'] = escape($row["classsize"]); ?>
+									
 							</tbody>
 						</table>
-						<?php } else { ?>
+						 <?php } else { ?>
 								<div class="row d-flex justify-content-center">
 									<h6>No classes available at this time please check back often and or call 763-560-6567</h6>.
 								</div>
 						  <?php }
 						} ?>
-					</div>  
+					</div>
 				</div>
 	</body>
 		<div class="row d-flex justify-content-center">

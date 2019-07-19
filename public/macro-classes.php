@@ -57,7 +57,7 @@ session_start();
 			  if ($result && $statement->rowCount() > 0) { ?>
 				<div class="content">
 					<div class="row d-flex justify-content-center">
-						<h2>List of available Advanced Mill classes</h2>
+						<h2>List of available Macro classes</h2>
 					</div>
 					<div class="row d-flex justify-content-center">
 						<table class=" col-12 table">
@@ -77,19 +77,21 @@ session_start();
 									<td><?php echo escape($row["quarter"]); ?></td>
 									<td><?php echo escape($row["classyear"]); ?></td>
 									<td class="row d-flex justify-content-center"><?php echo escape($row["classsize"]); ?></td>
-									<td><a href="thank-you.php?id=<?php echo escape($row["id"]); ?>">Add Me</a></td>
+									<td><a type="submit" href="test.php?id=<?php echo escape($row['id']); ?>"< button class="btn btn-dark" >Add Me</a></td>
 						
 								</tr>
-									<?php } ?>
+
+									<?php } $_SESSION['total'] = escape($row["classsize"]); ?>
+									
 							</tbody>
 						</table>
-						<?php } else { ?>
+						 <?php } else { ?>
 								<div class="row d-flex justify-content-center">
 									<h6>No classes available at this time please check back often and or call 763-560-6567</h6>.
 								</div>
 						  <?php }
 						} ?>
-					</div>  
+					</div>
 				</div>
 	</body>
 		<div class="row d-flex justify-content-center">

@@ -1,12 +1,6 @@
 <?php
-session_start();
- $_SESSION['classname'] = 'Advanced Mill';
-/**
-  * Function to query information based on
-  * a parameter: in this case, location.
-  *
-  */
-
+	session_start();
+	$_SESSION['classname'] = 'Advanced Mill';
 
   try {
     require "../config.php";
@@ -17,8 +11,8 @@ session_start();
     $sql = "SELECT *
     FROM classes
     WHERE completed = 0
-	AND classname LIKE 'advanced mill' ";
-		
+	AND classname LIKE 'advanced mill'
+	AND classsize > 0";
 
     $completed = $_POST['completed'];
 
@@ -30,8 +24,8 @@ session_start();
   } catch(PDOException $error) {
     echo $sql . "<br>" . $error->getMessage();
   }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -76,10 +70,12 @@ session_start();
 									<td><?php echo escape($row["quarter"]); ?></td>
 									<td><?php echo escape($row["classyear"]); ?></td>
 									<td class="row d-flex justify-content-center"><?php echo escape($row["classsize"]); ?></td>
-									<td><a href="thank-you.php?id=<?php echo escape($row["id"]); ?>">Add Me</a></td>
+									<td><a type="submit" href="test.php?id=<?php echo escape($row['id']); ?>"< button class="btn btn-dark" >Add Me</a></td>
 						
 								</tr>
-									<?php } ?>
+
+									<?php } $_SESSION['total'] = escape($row["classsize"]); ?>
+									
 							</tbody>
 						</table>
 						 <?php } else { ?>
@@ -88,7 +84,7 @@ session_start();
 								</div>
 						  <?php }
 						} ?>
-					</div> 
+					</div>
 				</div>
 	</body>
 		<div class="row d-flex justify-content-center">

@@ -1,23 +1,18 @@
 <?php
- session_start();
- $_SESSION['classname'] = 'Basic Lathe';
+	session_start();
+	$_SESSION['classname'] = 'Basic Lathe';
 
-
-/**
-  * Function to query information based on
-  * a parameter: in this case, location.
-  *
-  */
   try {
     require "../config.php";
     require "../common.php";
 
     $connection = new PDO($dsn, $username, $password, $options);
 
-     $sql = "SELECT *
+    $sql = "SELECT *
     FROM classes
     WHERE completed = 0
-	AND classname LIKE 'basic lathe' ";
+	AND classname LIKE 'basic lathe' 
+	AND classsize > 0";
 
     $completed = $_POST['completed'];
 	
@@ -25,15 +20,10 @@
     $statement->bindParam(':completed', $location, PDO::PARAM_STR);
     $statement->execute();
 
-    $result = $statement->fetchAll();
-	
-			
-			
+    $result = $statement->fetchAll();			
   } catch(PDOException $error) {
     echo $sql . "<br>" . $error->getMessage();
   }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -75,16 +65,15 @@
 							</thead>
 							<tbody>
 									<?php foreach ($result as $row) { ?>
-									
 								<tr>
 									<td><?php echo escape($row["classname"]); ?> <?php ?>   <?php echo escape($row["lastname"]); ?></td>
 									<td><?php echo escape($row["quarter"]); ?></td>
 									<td><?php echo escape($row["classyear"]); ?></td>
 									<td class="row d-flex justify-content-center"><?php echo escape($row["classsize"]); ?></td>
-									<td><a type="submit" href="test.php?id=<?php echo escape($row['id']);?>'&?size=<?php echo escape($row['classsize']);?>'"< button class="btn btn-dark" >Add Me</a></td>
+									<td><a type="submit" href="test.php?id=<?php echo escape($row['id']); ?>"< button class="btn btn-dark" >Add Me</a></td>
 								</tr>
 							
-									<?php } ?>
+									<?php } $_SESSION['total'] = escape($row["classsize"]); ?>
 									
 							</tbody>
 						</table>

@@ -2,14 +2,55 @@
  session_start();
     require "../config.php";
     require "../common.php";
+	$user = $_SESSION['stundentid'];
+	$class = $_GET['id'];
+
+//----------------------------------------------------------------------------
+//check for student
+try {
+	
+$connection = new PDO($dsn, $username, $password, $options);
+
+     $sql = "SELECT *
+    FROM students
+    WHERE completed = 0
+	AND classid = $class 
+	AND userid = $user";
+
+    $completed = $_POST['completed'];
+	
+    $statement = $connection->prepare($sql);
+    $statement->bindParam(':completed', $location, PDO::PARAM_STR);
+    $statement->execute();
+
+    $result = $statement->fetchAll();
+	$rows = mysqli_num_rows($result);
+		if($rows<0){
+			
+				// Redirect user to index.php
+			header("Location: lathe-classes.php");
+			$connection = null;
+			}
+			
+  } catch(PDOException $error) {
+    echo $sql . "<br>" . $error->getMessage();
+  }
 
 
- 
- if (isset($_GET['size'])) {
- 
+
+
+
+
+
+ //---------------------------------------------------------------------------
+ // add student
+ if (isset($_GET['id'])) {
+
+
   try {
-    $connection = new PDO($dsn, $username, $password, $options);
-
+    
+    
+	
     $new_student = array(
       "firstname" => $_SESSION['firstname'],
       "lastname"  => $_SESSION['lastname'],
@@ -23,9 +64,10 @@
 
     $sql = sprintf(
 "INSERT INTO %s (%s) values (%s)",
-"students",
+"students", 
 implode(", ", array_keys($new_student)),
 ":" . implode(", :", array_keys($new_student))
+
     );
 
     $statement = $connection->prepare($sql);
@@ -41,14 +83,13 @@ implode(", ", array_keys($new_student)),
 
 
 //--------------------------------------------------------------
+//update seats left in class
 
 try {
-  $test = 1;
-  $test2 = $_GET['size'];
-    // set the PDO error mode to exception
-    // $connection = new PDO($dsn, $username, $password, $options);
+  $remaining =  $_SESSION['total'] - 1;
+ 
 
-     $sql = "UPDATE classes SET classsize= $test2 WHERE id=$test ";
+     $sql = "UPDATE classes SET classsize= $remaining WHERE id=$class ";
 	
     // Prepare statement
     $stmt = $connection->prepare($sql);
