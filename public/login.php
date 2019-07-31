@@ -26,7 +26,6 @@ session_start();
 			$query = "SELECT * FROM `users` WHERE email='$username'
 	and password='".md5($password)."'";
 	$result = mysqli_query($con,$query) or die(mysql_error());
-
 	$query2 = "SELECT id, firstname, lastname, email, company, admin FROM `users` WHERE email='$username'";
 	$result2 = mysqli_query($con,$query2) or die(mysql_error());
 		 
@@ -51,7 +50,6 @@ session_start();
 			 $_SESSION['header'] = "templates/header.php";
 				// Redirect user to index.php
 			header("Location: index.php");
-
 			 }elseif($rows==1 && $admin == 0){ 
 			 $_SESSION['username'] = $username;
 			 $_SESSION['header'] = "templates/header.php";

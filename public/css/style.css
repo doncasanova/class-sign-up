@@ -23,7 +23,7 @@ body {
 .updateList {
     position: relative;
     top: 10px;
-    width: 50%;
+    width: 25%;
 }
 .borderless th {
     border: none !important;

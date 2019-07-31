@@ -26,6 +26,7 @@ session_start();
 			<?php echo $_SESSION['firstname']; ?>, Thank you for Joining our <?php echo $_SESSION['classname']; ?> Class.
 			
 			</h3>
+			
 		</div>
 		
 	</body>

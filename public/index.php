@@ -23,10 +23,8 @@ include("auth.php");
 		<div class="jumbotron indexCSS">
 			<div class="row d-flex justify-content-center">
 				<ul class="">
-					<li class=""><a href="read.php"><button class="btn btn-dark mb-2 mt-2">Class List</button></a></li>
-					<li class=""><a href="current-students.php"><button class="btn btn-dark mb-2 mt-2">Update Student Info</button></a></li>
-					<li class=""><a href="delete.php"><button class="btn btn-dark mt-2 ">Remove Student from Class list</button></a></li>
-					<li class=""><a href="add-class.php"><button class="btn btn-dark mt-2 ">Add Class</button></a></li>
+					<li class=""><a href="all-classes-admin.php"><button class="btn btn-dark mb-2 mt-2">Class List</button></a></li>
+					<li class=""><a href="add-class-admin.php"><button class="btn btn-dark mt-2 ">Add Class</button></a></li>
 				</ul>
 			</div>
 		</div>

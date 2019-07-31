@@ -1,4 +1,5 @@
 <?php
+@ob_start();
 	session_start();
 	$_SESSION['classname'] = 'Basic Mill';
 
@@ -70,7 +71,7 @@
 									<td><?php echo escape($row["quarter"]); ?></td>
 									<td><?php echo escape($row["classyear"]); ?></td>
 									<td class="row d-flex justify-content-center"><?php echo escape($row["classsize"]); ?></td>
-									<td><a type="submit" href="test.php?id=<?php echo escape($row['id']); ?>"< button class="btn btn-dark" >Add Me</a></td>
+									<td><a type="submit" href="test.php?id=<?php echo escape($row['id']);?>&total=<?php echo escape($row['classsize']);?>"< button class="btn btn-dark" >Add Me</a></td>
 						
 								</tr>
 

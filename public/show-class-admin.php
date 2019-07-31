@@ -1,39 +1,50 @@
 <?php
-@ob_start();
-session_start();
-?>
-<?php
-/**
-  * Function to query information based on
-  * a parameter: in this case, location.
-  *
-  */
+	session_start();
+
+	require "../config.php";
+    require "../common.php";
+
+	$_SESSION['classname'] = 'Basic Lathe';
+	$class = $_GET['id'];
+
 
 
   try {
-    require "../config.php";
-    require "../common.php";
-
     $connection = new PDO($dsn, $username, $password, $options);
 
     $sql = "SELECT *
     FROM classes
     WHERE completed = 0
-	AND classname LIKE 'macro' 
-	AND classsize > 0";
+	AND id = $class";
 
     $completed = $_POST['completed'];
-
+	
     $statement = $connection->prepare($sql);
     $statement->bindParam(':completed', $location, PDO::PARAM_STR);
     $statement->execute();
 
-    $result = $statement->fetchAll();
+    $result = $statement->fetchAll();			
   } catch(PDOException $error) {
     echo $sql . "<br>" . $error->getMessage();
+
+
+    header("Location: lathe-classes.php");
+
+  $sql2 = "SELECT * FROM students WHERE classid = $class";
+
+  $statement = $connection->prepare($sql2);
+  $statement->execute();
+
+  $result2 = $statement->fetchAll();
+ 
+
+} catch(PDOException $error) {
+  echo $sql2 . "<br>" . $error->getMessage();
   }
 
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -52,13 +63,14 @@ session_start();
 
 		<div class="row d-flex justify-content-center">
 			<div class="jumbotron classList">
-
+			<?php echo $class; ?>
+			<?php echo $result2; ?>
 			<?php
 			if (isset($_POST)) {
 			  if ($result && $statement->rowCount() > 0) { ?>
-				<div class="content">
+				<div class="content" method="post">
 					<div class="row d-flex justify-content-center">
-						<h2>List of available Macro classes</h2>
+						<h2>List of available lathe classes</h2>
 					</div>
 					<div class="row d-flex justify-content-center">
 						<table class=" col-12 table">
@@ -78,10 +90,9 @@ session_start();
 									<td><?php echo escape($row["quarter"]); ?></td>
 									<td><?php echo escape($row["classyear"]); ?></td>
 									<td class="row d-flex justify-content-center"><?php echo escape($row["classsize"]); ?></td>
-									<td><a type="submit" href="test.php?id=<?php echo escape($row['id']);?>&total=<?php echo escape($row['classsize']);?>""< button class="btn btn-dark" >Add Me</a></td>
-						
+									<td><a type="submit" href="test.php?id=<?php echo escape($row['id']);?>&total=<?php echo escape($row['classsize']);?>"< button class="btn btn-dark" >Add Me</a></td>
 								</tr>
-
+							
 									<?php } $_SESSION['total'] = escape($row["classsize"]); ?>
 									
 							</tbody>
@@ -93,6 +104,31 @@ session_start();
 						  <?php }
 						} ?>
 					</div>
+					<div class="row d-flex justify-content-center">
+				<table class="table ml-3">
+				  <thead class="borderless">
+					<tr>
+					<th scope="col-3">Name</th>
+					<th scope="col-3">Email Address</th>
+					<th scope="col-3">Company</th>
+					<th scope="col-3">Class</th>
+					<th scope="col-3">Class Start</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					<?php foreach ($result2 as $rows) : ?>
+					<tr>
+						<td><?php echo escape($rows["firstname"]); ?> <?php ?> <?php echo escape($rows["lastname"]); ?></td>
+						<td><?php echo escape($rows["email"]); ?></td>
+						<td><?php echo escape($rows["company"]); ?></td>
+						<td><?php echo escape($rows["class"]); ?></td>
+						<td><?php echo escape($rows["classstart"]); ?> </td>
+						<td><a href="update-single.php?id=<?php echo escape($rows["id"]);?>< button class="btn btn-primary" >Edit</a></td>
+					</tr>
+					<?php endforeach; ?>
+				  </tbody>
+				</table>
+			</div>
 				</div>
 	</body>
 		<div class="row d-flex justify-content-center">

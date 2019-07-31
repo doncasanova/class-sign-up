@@ -17,7 +17,7 @@ try {
   $statement->execute();
 
   $result = $statement->fetchAll();
-
+  header("Location: lathe-classes.php");
 } catch(PDOException $error) {
   echo $sql . "<br>" . $error->getMessage();
 }

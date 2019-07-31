@@ -1,14 +1,6 @@
 <?php
-@ob_start();
-session_start();
-?>
-<?php
-/**
-  * Function to query information based on
-  * a parameter: in this case, location.
-  *
-  */
-
+	session_start();
+	$_SESSION['classname'] = 'Basic Lathe';
 
   try {
     require "../config.php";
@@ -18,22 +10,21 @@ session_start();
 
     $sql = "SELECT *
     FROM classes
-    WHERE completed = 0
-	AND classname LIKE 'macro' 
+    WHERE completed = 0 
 	AND classsize > 0";
 
     $completed = $_POST['completed'];
-
+	
     $statement = $connection->prepare($sql);
     $statement->bindParam(':completed', $location, PDO::PARAM_STR);
     $statement->execute();
 
-    $result = $statement->fetchAll();
+    $result = $statement->fetchAll();			
   } catch(PDOException $error) {
     echo $sql . "<br>" . $error->getMessage();
   }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -56,9 +47,9 @@ session_start();
 			<?php
 			if (isset($_POST)) {
 			  if ($result && $statement->rowCount() > 0) { ?>
-				<div class="content">
+				<div class="content" method="post">
 					<div class="row d-flex justify-content-center">
-						<h2>List of available Macro classes</h2>
+						<h2>List of available lathe classes</h2>
 					</div>
 					<div class="row d-flex justify-content-center">
 						<table class=" col-12 table">
@@ -78,10 +69,9 @@ session_start();
 									<td><?php echo escape($row["quarter"]); ?></td>
 									<td><?php echo escape($row["classyear"]); ?></td>
 									<td class="row d-flex justify-content-center"><?php echo escape($row["classsize"]); ?></td>
-									<td><a type="submit" href="test.php?id=<?php echo escape($row['id']);?>&total=<?php echo escape($row['classsize']);?>""< button class="btn btn-dark" >Add Me</a></td>
-						
+									<td><a type="submit" href="test.php?id=<?php echo escape($row['id']);?>&total=<?php echo escape($row['classsize']);?>"< button class="btn btn-dark" >Add Me</a></td>
 								</tr>
-
+							
 									<?php } $_SESSION['total'] = escape($row["classsize"]); ?>
 									
 							</tbody>

@@ -1,3 +1,7 @@
+<?php
+ session_start();
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,6 +20,10 @@
 	<div class="content"> 
 		<div class="row d-flex justify-content-center mt-4" style="height: 100px;">
 			<h1>Welcome to our Class Sign Up Area</h1>
+		</div>
+		<div class="row d-flex justify-content-center">
+			<h1><?php echo $_SESSION['name'];?></h1>
+			<h1><?php echo $_SESSION['admin'];?></h1>
 		</div>
 		<div class="row d-flex justify-content-center">
 			<div>

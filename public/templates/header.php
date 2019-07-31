@@ -1,6 +1,7 @@
 <?php
  session_start();
  ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,8 +23,7 @@
 			<h1>Welcome to the admin page</h1>
 		</div>
 		<div class="row d-flex justify-content-center">
-			<h1><?php echo $_SESSION['name'];?></h1>
-			<h1><?php echo $_SESSION['admin'];?></h1>
+			<h1><?php echo $_SESSION['firstname'];?> <?php echo $_SESSION['lastname'];?></h1>
 		</div>
 		<div class="row d-flex justify-content-center">
 			<div>
