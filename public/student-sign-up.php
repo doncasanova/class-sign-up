@@ -23,6 +23,9 @@ include("auth.php");
 	<div class="row d-flex justify-content-center">
 		<div class="jumbotron studentSignUpCSS">
 			<div class="row d-flex justify-content-center">
+				<h3 class="text-center"><?php echo $_SESSION['all-ready-signed-up'] ?></h3>
+			</div>
+			<div class="row d-flex justify-content-center">
 				<p class="p3">Please select the class to check availability.</p>
 			</div>
 			<div class="row d-flex justify-content-center">

@@ -43,6 +43,11 @@ body {
     top: 10px;
     width: 30%;
 }
+.studentSignUpCSS {
+    position: relative;
+    top: 20px;
+    width: 30%;
+}
 .readCSS {
     position: relative;
     top: 20px;
@@ -125,7 +130,4 @@ img.imgContainer {
     max-width: 50%;
     height: auto;
 }
-.studentSignUpCSS {
-    width: 30% !important;
-    background-color: rgba(221, 246, 248, 0.86) !important;
-}
+

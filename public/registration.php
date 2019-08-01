@@ -21,7 +21,10 @@
 				$email = mysqli_real_escape_string($con,$email);
 				$password = stripslashes($_REQUEST['password']);
 				$password = mysqli_real_escape_string($con,$password);
+				$password2 = stripslashes($_REQUEST['password2']);
+				$password2 = mysqli_real_escape_string($con,$password2);
 				$trn_date = date("Y-m-d H:i:s");
+				if($password == $password2){
 					$query = "INSERT into `users` (firstname, lastname, email, company, password, admin, trn_date)
 			VALUES ('$firstname', '$lastname', '$email', '$companyname', '".md5($password)."', 0, '$trn_date')";
 					$result = mysqli_query($con,$query);
@@ -30,7 +33,12 @@
 			<h3>You are registered successfully.</h3>
 			<br/>Click here to <a href='login.php'>Login</a></div>";
 					}
+					}else{
+					$_SESSION['sorry-redo-password'] = "Sorry your passwords don't match please try again.";
+						header("Location: reg-info.php");
+					}
 				}else{
+
 			?>
 
 
@@ -39,12 +47,14 @@
 			<div class="row d-flex justify-content-center logIn">
 			<div class="form">
 				<h1>Registration</h1>
+				<h4><?php echo $_SESSION['sorry-redo-password']?></h4>
 				<form name="registration" action="" method="post">
 					<input type="text" name="firstname" placeholder="First Name" required />
 					<input type="text" name="lastname" placeholder="Last Name" required />
 					<input type="email" name="email" placeholder="Email" required />
 					<input type="text" name="company" placeholder="Company Name" required />
 					<input type="password" name="password" placeholder="Password" required />
+					<input type="password" name="password2" placeholder="Password Conformation" required />
 					<input type="submit" name="submit" value="Register" />
 				</form>
 			</div>

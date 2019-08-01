@@ -25,6 +25,8 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         $_SESSION['class'] = $class;
+		$firstname = $_SESSION['firstname'];
+		$_SESSION['all-ready-signed-up'] = "Wow $firstname! We love your enthusiasm but it looks like your already signed up.";
 		header("Location: student-sign-up.php");
 					$connection = null;
     }
