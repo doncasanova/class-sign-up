@@ -19,10 +19,10 @@
 			<a href="logout.php"><button class="btn btn-dark m-1">Logout</button></a>
 		</div>
 		<div class="row d-flex justify-content-center">
-			<h1>Welcome to our Class Sign Up Area</h1>
+			<h1><?php echo $_SESSION['firstname'];?> <?php echo $_SESSION['lastname'];?></h1>
 		</div>
 		<div class="row d-flex justify-content-center">
-			<h1><?php echo $_SESSION['firstname'];?> <?php echo $_SESSION['lastname'];?></h1>
+			<h1>Welcome to our Class Sign Up Area</h1>
 		</div>
 		<div class="row d-flex justify-content-center">
 			<div>
